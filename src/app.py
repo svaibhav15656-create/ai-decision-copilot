@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 import pandas as pd
 import os
 
-from data_loader import load_data
-from data_inspector import inspect_data
-from decision_engine import suggest_decision
-from simulator import simulate_price_change
-from explainer import explain
+from src.data_loader import load_data
+from src.data_inspector import inspect_data
+from src.decision_engine import suggest_decision
+from src.simulator import simulate_price_change
+from src.explainer import explain
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
