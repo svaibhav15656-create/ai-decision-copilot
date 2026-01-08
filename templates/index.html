@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Decision Copilot</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            background: linear-gradient(135deg, #f4f7fb, #e9eef5);
+            color: #333;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 60px auto;
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 14px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 40px;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #1f2937;
+        }
+
+        .header span {
+            color: #2563eb;
+        }
+
+        .header p {
+            font-size: 18px;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .upload-box {
+            margin-top: 40px;
+            padding: 30px;
+            border: 2px dashed #c7d2fe;
+            border-radius: 12px;
+            text-align: center;
+            background: #f8fafc;
+        }
+
+        .upload-box h2 {
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #1e3a8a;
+        }
+
+        .upload-box p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+            font-size: 15px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 28px;
+            font-size: 16px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1e40af;
+        }
+
+        .section {
+            margin-top: 50px;
+        }
+
+        .section h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            border-left: 5px solid #2563eb;
+            padding-left: 12px;
+            color: #1f2937;
+        }
+
+        .issues {
+            background: #fff7ed;
+            border-left: 6px solid #f97316;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .issues ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .issues li {
+            margin-bottom: 8px;
+            color: #92400e;
+        }
+
+        .result {
+            background: #f0fdf4;
+            border-left: 6px solid #22c55e;
+            padding: 25px;
+            border-radius: 8px;
+            white-space: pre-line;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            color: #777;
+            font-size: 14px;
+        }
+
+        footer strong {
+            color: #111827;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>AI <span>DECISION COPILOT</span></h1>
+        <p>
+            AI Decision Copilot helps businesses make smarter, data-driven decisions.
+            Upload your sales data to automatically detect data issues, analyze profitability,
+            simulate strategic scenarios, and receive clear, explainable business recommendations.
+        </p>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data">
+        <div class="upload-box">
+            <h2>Upload Your Business Dataset</h2>
+            <p>Supported format: CSV (Sales, Revenue, Cost, Pricing data)</p>
+            <input type="file" name="dataset" required>
+            <br>
+            <button type="submit">Analyze Data</button>
+        </div>
+    </form>
+
+    {% if issues %}
+    <div class="section">
+        <h3>Data Quality Insights</h3>
+        <div class="issues">
+            <ul>
+                {% for issue in issues %}
+                    <li>{{ issue }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+
+    {% if result %}
+    <div class="section">
+        <h3>Decision & Impact Analysis</h3>
+        <div class="result">
+            {{ result }}
+        </div>
+    </div>
+    {% endif %}
+
+</div>
+
+<footer>
+    <strong>AI Decision Copilot</strong> — Transparent, Explainable Business Intelligence
+</footer>
+
+</body>
+</html>
+
